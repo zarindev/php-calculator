@@ -11,20 +11,38 @@
         <input type="text" name="num1" placeholder="number one">
         <input type="text" name="num2" placeholder="number two">
         <select name="operator">
-            <option value="">None</option>
-            <option value="">Add</option>
-            <option value="">Sub</option>
-            <option value="">Mult</option>
-            <option value="">Divide</option>
+            <option>None</option>
+            <option>Add</option>
+            <option>Sub</option>
+            <option>Mult</option>
+            <option>Divide</option>
         </select>
         <br>
         <button type="submit" name="submit" value="submit">Calculate</button>
     </form>
+    <p>The answer is: </p>
     <?php 
        if (isset($_GET['submit'])) {
            $result1 = $_GET['num1'];
            $result2 = $_GET['num2'];
            $operator = $_GET['operator'];
+           switch ($operator){
+               case "None":
+                echo "You need to select a method";
+               break;  
+               case "Add":
+                echo $result1 + $result2;
+               break;  
+               case "Sub":
+                echo $result1 - $result2;
+               break;  
+               case "Mult":
+                echo $result1 * $result2;
+               break;  
+               case "Divide":
+                echo $result1 / $result2;
+               break;  
+           }
        }
     ?>
 </body>
